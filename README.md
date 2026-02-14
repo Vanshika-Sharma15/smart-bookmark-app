@@ -117,3 +117,126 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
 Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
+---
+
+## 🚧 Challenges Faced and How I Solved Them
+
+### **1. Google OAuth Configuration Issues**
+
+While setting up Google login, authentication initially failed because the OAuth credentials were not configured correctly in Google Cloud and Supabase.
+
+**Problem:**
+
+* Redirect URLs were not matching
+* Authentication failed after Google login
+* Supabase session was not created
+
+**Solution:**
+
+* Created OAuth credentials in Google Cloud Console
+* Added authorized redirect URL from Supabase dashboard
+* Configured Google provider in Supabase Auth settings
+* Verified environment variables in `.env.local`
+
+After fixing the redirect URLs, authentication worked successfully.
+
+---
+
+### **2. Understanding Supabase Realtime Subscriptions**
+
+Implementing real-time updates was initially confusing because I had to understand how Supabase listens to database changes.
+
+**Problem:**
+
+* Bookmark list was not updating across tabs
+* Real-time subscription was not triggering
+* Incorrect useEffect configuration caused errors
+
+**Solution:**
+
+* Used Supabase `channel()` and `postgres_changes` listener
+* Subscribed to insert and delete events
+* Updated React state when database changes occurred
+* Fixed `useEffect` dependency array to prevent re-render issues
+
+This allowed bookmarks added in one tab to instantly appear in another.
+
+---
+
+### **3. Ensuring Bookmarks Are Private Per User**
+
+I needed to ensure that users could only see their own bookmarks.
+
+**Problem:**
+
+* Initially all bookmarks were visible to every user
+* Data filtering was not implemented properly
+
+**Solution:**
+
+* Stored `user_id` with each bookmark
+* Fetched bookmarks using the authenticated user's ID
+* Filtered database queries using user session
+
+This ensured complete data isolation between users.
+
+---
+
+### **4. Git Push and Merge Conflicts**
+
+While pushing changes to GitHub, I encountered push rejections because the remote repository had updates that were not present locally.
+
+**Problem:**
+
+* Git push failed with non-fast-forward error
+* Merge conflict in README file
+
+**Solution:**
+
+* Pulled remote changes using `git pull origin main`
+* Resolved merge conflicts manually
+* Committed and pushed again successfully
+
+---
+
+### **5. Session Behavior Across Multiple Tabs**
+
+When testing logout in multiple tabs, I noticed logging out in one tab did not automatically log out the other tab.
+
+**Problem:**
+
+* Logout state not syncing across tabs
+
+**Solution:**
+
+* Learned that Supabase stores session locally in each tab
+* This behavior is expected unless global session listeners are implemented
+
+---
+
+### **6. Environment Variables in Deployment**
+
+During deployment on Vercel, authentication failed because environment variables were not configured.
+
+**Problem:**
+
+* Supabase client keys were missing in production
+* Login failed on deployed version
+
+**Solution:**
+
+* Added Supabase URL and anon key in Vercel environment variables
+* Redeployed the project
+
+---
+
+## ✅ What I Learned
+
+* Implementing OAuth authentication
+* Working with Supabase database and realtime features
+* Managing user sessions securely
+* Handling Git merge conflicts
+* Deploying full-stack applications on Vercel
+
+
