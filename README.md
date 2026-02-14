@@ -89,42 +89,31 @@ Run the app:
 
 ```
 npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
----
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## 🚧 Challenges Faced & Solutions
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-### 1. Google OAuth Setup
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-Initially, configuring Google OAuth with Supabase was confusing due to redirect URLs and credentials setup. This was resolved by carefully configuring the OAuth client in Google Cloud and matching redirect URLs in Supabase.
+## Learn More
 
----
+To learn more about Next.js, take a look at the following resources:
 
-### 2. Real-time Updates
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Implementing real-time bookmark updates required setting up Supabase realtime subscriptions and handling React state updates correctly.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-I also encountered a `useEffect dependency array` error because the dependency list changed between renders. This was fixed by ensuring the dependency array remained consistent.
+## Deploy on Vercel
 
----
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-### 3. Private User Data (Security)
-
-To make bookmarks private, I implemented Supabase Row Level Security (RLS) policies so each user can only access their own records.
-
----
-
-### 4. Deployment Issues
-
-Environment variables were not working initially on Vercel. The issue was resolved by adding the Supabase keys in Vercel environment settings.
-
----
-
-## 📚 What I Learned
-
-* Implementing OAuth authentication flow
-* Using Supabase for full backend functionality
-* Handling real-time database updates
-* Managing React state with realtime events
-* Deploying production apps on Vercel
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
