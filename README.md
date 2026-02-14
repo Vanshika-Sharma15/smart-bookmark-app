@@ -68,7 +68,7 @@ This project was built as an assignment to demonstrate authentication, database 
 Clone the repository:
 
 ```
-git clone <repo-url>
+git clone https://github.com/Vanshika-Sharma15/smart-bookmark-app
 cd smart-bookmark-app
 ```
 
