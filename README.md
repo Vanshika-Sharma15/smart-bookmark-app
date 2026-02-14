@@ -1,15 +1,15 @@
 # 📌 **Smart Bookmark App**
 
-A simple bookmark manager where users can sign in with Google and manage their personal bookmarks. The app supports real-time updates, private user data, and deployment on Vercel.
+A simple bookmark manager where users can sign in with Google and manage their personal bookmarks. The app supports real-time updates, private user data and deployment on Vercel.
 
-This project was built as an assignment to demonstrate authentication, database integration, and real-time functionality using modern web technologies.
+This project was built as an assignment to demonstrate authentication, database integration and real-time functionality using modern web technologies.
 
 ---
 
 ## 🚀 Live Demo
 
-👉 **Live URL:** *(paste your Vercel URL here)*
-👉 **GitHub Repo:** *(paste your repo link here)*
+👉 **Live URL:** https://smart-bookmark-app-eta-vert.vercel.app/
+👉 **GitHub Repo:** https://github.com/Vanshika-Sharma15/smart-bookmark-app
 
 ---
 
